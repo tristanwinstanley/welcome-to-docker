@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: welcome-deployment
+  labels:
+    app: welcome
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: welcome
+  template:
+    metadata:
+      labels:
+        app: welcome
+    spec:
+      containers:
+      - name: welcome123
+        image: tristan12/welcome-to-docker:tpexo4
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000      
