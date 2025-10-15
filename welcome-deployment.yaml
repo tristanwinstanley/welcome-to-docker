@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: welcome-deployment
+  labels:
+    app: welcome
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: welcome
+  template:
+    metadata:
+      labels:
+        app: welcome
+    spec:
+      containers:
+      - name: welcome123
+        image: tristan12/welcome-to-docker:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+---
+# apiVersion: v1
+# kind: Service
+# metadata:
+  # name: back-svc
+# spec:
+  # type: NodePort
+  # ports:
+    # - port: 8080
+      # targetPort: 3000
+      # nodePort: 31982
+  # selector:
+    # tier: back      
+---
+# apiVersion: v1
+# kind: Service
+# metadata:
+ # name: test-svc
+# spec:
+ # type: NodePort 
+ # ports:
+ # - port: 31001
+   # protocol: TCP
+   # targetPort: 31000
+   # nodePort: 31000
+ # selector:
+   # app: welcome     
