@@ -1,25 +1,14 @@
 services:
   webapp1:
-    image: tristan12/welcome-to-docker
+    image: username/welcome-to-docker
     ports:
-      - "8080:3000"
+      - "x:x"
     volumes:
-      - vol1:/data/test
+      - volume1:/data/test
     networks:
-      - net1
-    depends_on:
-      - webapp2
 
-  webapp2:
-    image: tristan12/welcome-to-docker
-    ports:
-      - "8081:3000"
-    networks:
-      - net1
 
 networks:
-  net1:
-    driver: bridge
+
     
 volumes:
-  vol1:
